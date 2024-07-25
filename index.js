@@ -2,10 +2,13 @@ const express = require('express');
 const App = express();
 const SignupModel = require('./SignUpSchema');
 require('dotenv').config();
+const cors = require('cors');
 const bcrypt = require('bcrypt');
 
+// CORS is like a security gate for websites. It controls which other websites can get information from your site. If you want your site to share data with another site, you need to give that site permission through special settings.
 
 App.use(express.json());
+App.use(cors({ origin: 'http://localhost:5173' }));
 
 App.post('/postdata',async(req,res)=>
 {
